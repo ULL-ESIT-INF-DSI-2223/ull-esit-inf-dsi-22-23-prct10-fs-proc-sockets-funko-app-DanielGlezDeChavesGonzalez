@@ -1,0 +1,2 @@
+node dist/index.js add --user Dani --id 3 --nombre "Classic Sonic" --desc "The best Sonic Funko Pop ever" --tipo "Pop" --genero "Videojuegos" --franq "Sonic" --num_f 1 --exclusivo false --car_e "ninguno" --precio 200
+node dist/index.js read --user Dani

@@ -1,0 +1,12 @@
+{
+  "id": 12,
+  "name": "Brayan",
+  "description": "potente",
+  "Tipo": "Vynil_Gold",
+  "Genero": "Deportes",
+  "Franquicia": "Secta",
+  "Numero_franquicia": 4,
+  "Exclusivo": false,
+  "Caracteristicas_especiales": "Camina",
+  "Precio": 500
+}

@@ -1,0 +1,12 @@
+{
+  "id": 4,
+  "name": "Minecraft",
+  "description": "El mejor juego de construcción",
+  "Tipo": "Videojuego",
+  "Genero": "Animacion",
+  "Franquicia": "Marvel",
+  "Numero_franquicia": 4215,
+  "Exclusivo": false,
+  "Caracteristicas_especiales": "Puede crear lo que quiera",
+  "Precio": 400
+}

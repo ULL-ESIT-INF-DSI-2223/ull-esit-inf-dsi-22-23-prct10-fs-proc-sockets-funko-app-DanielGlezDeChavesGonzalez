@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "name": "John Doe",
+  "description": "Lorem ipsum dolor sit amet",
+  "Tipo": "Pop",
+  "Genero": "Animacion",
+  "Franquicia": "Disney",
+  "Numero_franquicia": 234123,
+  "Exclusivo": true,
+  "Caracteristicas_especiales": "Lorem ipsum",
+  "Precio": 123.45
+}
