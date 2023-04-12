@@ -16,7 +16,13 @@ else {
             watcher.on("change", function () {
                 console.log("File ".concat(filename_1, " has been modified somehow"));
             });
-            console.log("File ".concat(filename_1, " is no longer watched"));
+            watcher.on("error", function (err) {
+                console.log("Error: ".concat(err));
+            });
+            watcher.on("close", function () {
+                console.log("File ".concat(filename_1, " has been closed"));
+            });
         }
     });
 }
+// en el codigo anterior la  traza de ejecución mostrando, paso a paso, el contenido de la pila de llamadas, el registro de eventos de la API y la cola de manejadores, además de lo que se muestra por la consola.
