@@ -1,8 +1,8 @@
-import fs from "fs";
+import * as fs from "fs";
 import { Funko } from "./datatype/Funko";
 import { Tipos, Genero } from "./datatype/Tipos";
-import chalk from "chalk";
-import path from "path";
+import * as chalk from "chalk";
+import * as path from "path";
 
 /**
  * Clase App

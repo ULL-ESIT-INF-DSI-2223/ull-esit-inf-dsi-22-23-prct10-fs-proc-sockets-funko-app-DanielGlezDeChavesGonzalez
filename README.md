@@ -159,3 +159,6 @@ yargs(hideBin(process.argv))
 
 En el codigo anterior primero se ejecuta el programa y se le pasa como argumento el comando wclc, el nombre del fichero y las opciones que queremos que nos muestre. Luego se ejecuta la funcion spawn() que crea un proceso hijo y se le pasa como argumento el comando wc y los argumentos que queremos que nos muestre. Posteriormente se ejecuta la funcion pipe() que se encarga de conectar la salida del proceso hijo con la entrada del proceso padre. Y finalmente se ejecutan las funciones on() que se encargan de ejecutar la funcion callback cuando el proceso hijo se cierra y cuando se produce un error.
 
+
+## Ejercicio 3: Sockets
+

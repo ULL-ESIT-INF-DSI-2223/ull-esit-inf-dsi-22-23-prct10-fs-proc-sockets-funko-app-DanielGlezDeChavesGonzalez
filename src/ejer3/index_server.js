@@ -1,121 +1,29 @@
-import { App } from "./FunkoApp";
-import * as chalk from "chalk";
-import { Funko } from "./datatype/Funko";
-import * as net from "net";
-
-export type RequestType = {
-  type: "add" | "update" | "remove" | "read" | "list";
-  user: string;
-  funkoPop?: Funko;
-};
-
-export type ResponseType = {
-  type: "add" | "update" | "remove" | "read" | "list";
-  user: string;
-  success: boolean;
-};
-
-const server = net.createServer((connection) => {
-  console.log("Client connected");
-  connection.on("data", (dataJson) => {
-    const data = JSON.parse(dataJson.toString());
-    console.log(data);
-    if (data.type == "add") {
-      const app = new App(data.user);
-      let added = app.addFunko(
-        data.user,
-        data.funkoPop.id,
-        data.funkoPop.name,
-        data.funkoPop.description,
-        data.funkoPop.Tipo,
-        data.funkoPop.genero,
-        data.funkoPop.Franquicia,
-        data.funkoPop.Numero_franquicia,
-        data.funkoPop.Exclusivo,
-        data.funkoPop.Caracteristicas_especiales,
-        data.funkoPop.Precio
-      );
-      app.guardarDatos();
-      if (added) {
-        console.log(
-          chalk.green(
-            "Funko added successfully to " + data.user + " collection"
-          )
-        );
-      } else {
-        console.log(
-          chalk.red("Funko already exists in " + data.user + " collection")
-        );
-      }
-    }
-    if (data.type == "list") {
-      const app = new App(data.user);
-      app.cargarDatos(data.user);
-      app.listFunkos();
-    }
-    if (data.type == "update") {
-      const app = new App(data.user);
-      let updated = app.modifyFunko(
-        data.funkoPop.id,
-        data.funkoPop.name,
-        data.funkoPop.description,
-        data.funkoPop.Tipo,
-        data.funkoPop.genero,
-        data.funkoPop.Franquicia,
-        data.funkoPop.Numero_franquicia,
-        data.funkoPop.Exclusivo,
-        data.funkoPop.Caracteristicas_especiales,
-        data.funkoPop.Precio
-      );
-      app.guardarDatos();
-      if (updated) {
-        console.log(
-          chalk.green(
-            "Funko updated successfully to " + data.user + " collection"
-          )
-        );
-      } else {
-        console.log(
-          chalk.red("Funko not found in " + data.user + " collection")
-        );
-      }
-    }
-    if (data.type == "remove") {
-      const app = new App(data.user);
-      let removed = app.removeFunko(data.funkoPop.id);
-      app.guardarDatos();
-      if (removed) {
-        console.log(
-          chalk.green(
-            "Funko removed successfully to " + data.user + " collection"
-          )
-        );
-      } else {
-        console.log(
-          chalk.red("Funko not found in " + data.user + " collection")
-        );
-      }
-    }
-    if (data.type == "read") {
-      const app = new App(data.user);
-      let read = app.showFunkoById(data.funkoPop.id);
-      if (read) {
-        console.log(
-          chalk.green("Funko read successfully to " + data.user + " collection")
-        );
-      } else {
-        console.log(
-          chalk.red("Funko not found in " + data.user + " collection")
-        );
-      }
-    }
-  });
+"use strict";
+exports.__esModule = true;
+var FunkoApp_1 = require("./FunkoApp");
+var chalk = require("chalk");
+var net = require("net");
+var server = net.createServer(function (connection) {
+    console.log("Client connected");
+    connection.on("data", function (dataJson) {
+        var data = JSON.parse(dataJson.toString());
+        console.log(data);
+        if (data.type == "add") {
+            var app = new FunkoApp_1.App(data.user);
+            var added = app.addFunko(data.user, data.funkoPop.id, data.funkoPop.name, data.funkoPop.description, data.funkoPop.Tipo, data.funkoPop.genero, data.funkoPop.Franquicia, data.funkoPop.Numero_franquicia, data.funkoPop.Exclusivo, data.funkoPop.Caracteristicas_especiales, data.funkoPop.Precio);
+            app.guardarDatos();
+            if (added) {
+                console.log(chalk.green("Funko added successfully to " + data.user + " collection"));
+            }
+            else {
+                console.log(chalk.red("Funko already exists in " + data.user + " collection"));
+            }
+        }
+    });
 });
-
-server.listen(8080, () => {
-  console.log("Server running on port 8080");
+server.listen(8080, function () {
+    console.log("Server running on port 8080");
 });
-
 //   yargs(hideBin(process.argv))
 //     .command(
 //       "add",
@@ -216,7 +124,6 @@ server.listen(8080, () => {
 //       }
 //     )
 //     .help().argv;
-
 //   yargs(hideBin(process.argv))
 //     .command(
 //       "list",
@@ -235,7 +142,6 @@ server.listen(8080, () => {
 //       }
 //     )
 //     .help().argv;
-
 //   yargs(hideBin(process.argv))
 //     .command(
 //       "update",
@@ -335,7 +241,6 @@ server.listen(8080, () => {
 //       }
 //     )
 //     .help().argv;
-
 //   yargs(hideBin(process.argv))
 //     .command(
 //       "read",
@@ -362,7 +267,6 @@ server.listen(8080, () => {
 //       }
 //     )
 //     .help().argv;
-
 //   yargs(hideBin(process.argv))
 //     .command(
 //       "remove",
