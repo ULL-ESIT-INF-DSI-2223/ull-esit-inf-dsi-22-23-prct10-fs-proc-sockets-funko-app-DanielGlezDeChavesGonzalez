@@ -1,8 +1,9 @@
 import "mocha";
-import fs from "fs";
 import { expect } from "chai";
-import { App } from "../../src/ejer3/FunkoApp";
-import { Tipos, Genero } from "../../src/ejer3/datatype/Tipos";
+import { App } from "../src/ejer3/FunkoApp";
+import { Funko } from "../src/ejer3/datatype/Funko";
+import * as fs from "fs";
+import { Tipos, Genero } from "../src/ejer3/datatype/Tipos";
 
 describe("FunkoApp", () => {
   it("should cargar datos", () => {
@@ -116,13 +117,11 @@ describe("FunkoApp", () => {
     const funkoApp = new App("user");
     funkoApp.cargarDatos("user");
     const funkos = funkoApp.listFunkos();
-    expect(funkos).to.be.equal(true);
-  });
-  it("should list funkos", () => {
-    const funkoApp = new App("user");
-    funkoApp.cargarDatos("user");
-    const funkos = funkoApp.listFunkos();
-    expect(funkos).to.be.equal(true);
+    let fun = false;
+    if (funkos != null) {
+      fun = true;
+    }
+    expect(fun).to.be.equal(true);
   });
   it("should read a funko by id", () => {
     const funkoApp = new App("user");
@@ -167,10 +166,10 @@ describe("FunkoApp", () => {
       600
     );
     funkoApp.cargarDatos("user");
-    const funko = funkoApp.showFunkoById(1);
-    const funko2 = funkoApp.showFunkoById(2);
-    const funko3 = funkoApp.showFunkoById(3);
-    const funko4 = funkoApp.showFunkoById(4);
+    const funko = funkoApp.showFunkoById(1) ? true : false;
+    const funko2 = funkoApp.showFunkoById(2) ? true : false;
+    const funko3 = funkoApp.showFunkoById(3) ? true : false;
+    const funko4 = funkoApp.showFunkoById(4) ? true : false;
     expect(funko).to.be.equal(true);
     expect(funko2).to.be.equal(true);
     expect(funko3).to.be.equal(true);
@@ -179,20 +178,19 @@ describe("FunkoApp", () => {
   it("should not read a funko by id", () => {
     const funkoApp = new App("user");
     funkoApp.cargarDatos("user");
-    const funko = funkoApp.showFunkoById(7);
+    const funko = funkoApp.showFunkoById(7) ? true : false;
     expect(funko).to.be.equal(false);
   });
   it("should delete a funko", () => {
     const funkoApp = new App("user");
     funkoApp.cargarDatos("user");
     let removed = funkoApp.removeFunko(1);
-    const funko = funkoApp.getFunko(1);
     expect(removed).to.be.equal(true);
   });
   it("should not delete a funko", () => {
     const funkoApp = new App("user");
     funkoApp.cargarDatos("user");
-    let removed = funkoApp.removeFunko(7);
+    let removed = funkoApp.removeFunko(7) ? true : false;
     expect(removed).to.be.equal(false);
   });
 });

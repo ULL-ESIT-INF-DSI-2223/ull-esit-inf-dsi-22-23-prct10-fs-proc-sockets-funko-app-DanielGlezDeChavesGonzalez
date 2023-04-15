@@ -5,7 +5,7 @@ import {
   Genero,
   asignarGenero,
   asignarTipo,
-} from "../../src/ejer3/datatype/Tipos";
+} from "../src/ejer3/datatype/Tipos";
 
 describe("Tipos", () => {
   it("should asignarTipo", () => {

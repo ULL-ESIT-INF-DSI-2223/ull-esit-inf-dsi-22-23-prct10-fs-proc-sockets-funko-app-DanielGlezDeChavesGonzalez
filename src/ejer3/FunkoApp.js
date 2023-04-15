@@ -3,7 +3,6 @@ exports.__esModule = true;
 exports.App = void 0;
 var fs = require("fs");
 var Funko_1 = require("./datatype/Funko");
-var chalk = require("chalk");
 var path = require("path");
 /**
  * Clase App
@@ -131,35 +130,11 @@ var App = /** @class */ (function () {
      * @returns devuelve true si se ha listado correctamente
      */
     App.prototype.listFunkos = function () {
-        console.log(chalk.green("Funkos de " + this.Usuario));
-        console.log(chalk.green("------------------"));
+        var funkos = [];
         this.Funkos.forEach(function (funko) {
-            var color = chalk.green;
-            if (funko.Precio <= 100) {
-                color = chalk.green;
-            }
-            else if (funko.Precio > 100 && funko.Precio <= 200) {
-                color = chalk.yellow;
-            }
-            else if (funko.Precio > 200 && funko.Precio <= 500) {
-                color = chalk.red;
-            }
-            else {
-                color = chalk.blue;
-            }
-            console.log(color("ID: " + funko.id));
-            console.log(color("Nombre: " + funko.name));
-            console.log(color("Descripcion: " + funko.description));
-            console.log(color("Tipo: " + funko.Tipo));
-            console.log(color("Genero: " + funko.Genero));
-            console.log(color("Franquicia: " + funko.Franquicia));
-            console.log(color("Numero de franquicia: " + funko.Numero_franquicia));
-            console.log(color("Exclusivo: " + funko.Exclusivo));
-            console.log(color("Caracteristicas especiales: " + funko.Caracteristicas_especiales));
-            console.log(color("Precio: " + funko.Precio));
-            console.log(color("------------------"));
+            funkos.push(funko);
         });
-        return true;
+        return funkos;
     };
     /**
      * funcion para mostrar un funko por su id
@@ -170,21 +145,10 @@ var App = /** @class */ (function () {
         if (this.Funkos.has(id)) {
             var funko = this.Funkos.get(id);
             if (funko !== undefined) {
-                console.log(chalk.gray("ID: " + funko.id));
-                console.log(chalk.gray("Nombre: " + funko.name));
-                console.log(chalk.gray("Descripcion: " + funko.description));
-                console.log(chalk.gray("Tipo: " + funko.Tipo));
-                console.log(chalk.gray("Genero: " + funko.Genero));
-                console.log(chalk.gray("Franquicia: " + funko.Franquicia));
-                console.log(chalk.gray("Numero de franquicia: " + funko.Numero_franquicia));
-                console.log(chalk.gray("Exclusivo: " + funko.Exclusivo));
-                console.log(chalk.gray("Caracteristicas especiales: " + funko.Caracteristicas_especiales));
-                console.log(chalk.gray("Precio: " + funko.Precio));
-                console.log(chalk.gray("------------------"));
-                return true;
+                return this.Funkos.get(id);
             }
         }
-        return false;
+        return undefined;
     };
     return App;
 }());
