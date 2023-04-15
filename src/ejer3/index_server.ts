@@ -1,5 +1,4 @@
 import { App } from "./FunkoApp";
-import * as chalk from "chalk";
 import { Funko } from "./datatype/Funko";
 import * as net from "net";
 
