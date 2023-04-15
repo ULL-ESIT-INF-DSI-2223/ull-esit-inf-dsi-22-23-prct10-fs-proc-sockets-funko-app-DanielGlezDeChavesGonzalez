@@ -1,3 +1,4 @@
+[![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-DanielGlezDeChavesGonzalez/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-DanielGlezDeChavesGonzalez?branch=main)
 # Práctica 10: Procesos y Sockets
 
 ## Descripción
