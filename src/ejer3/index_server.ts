@@ -3,6 +3,9 @@ import * as chalk from "chalk";
 import { Funko } from "./datatype/Funko";
 import * as net from "net";
 
+/**
+ * Tipo de peticion
+ */
 export type RequestType = {
   type: "add" | "update" | "remove" | "read" | "list";
   user: string;
@@ -10,6 +13,9 @@ export type RequestType = {
   id?: number;
 };
 
+/**
+ * Tipo de respuesta
+ */
 export type ResponseType = {
   type: "add" | "update" | "remove" | "read" | "list";
   user: string;

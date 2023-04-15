@@ -5,6 +5,9 @@ import * as chalk from "chalk";
 import { Funko } from "./datatype/Funko";
 import * as net from "net";
 
+/**
+ * Tipo de peticion
+ */
 export type RequestType = {
   type: "add" | "update" | "remove" | "read" | "list";
   user: string;
@@ -12,6 +15,9 @@ export type RequestType = {
   id?: number;
 };
 
+/**
+ * Tipo de respuesta
+ */
 export type ResponseType = {
   type: "add" | "update" | "remove" | "read" | "list";
   user: string;
@@ -316,7 +322,7 @@ let client = net.createConnection({ port: 8080 }, () => {
 
           client.write(JSON.stringify(request));
           console.log("mensaje read enviado");
-          
+
           client.on("data", (dataJson) => {
             let data = JSON.parse(dataJson.toString());
             if (data.success) {
